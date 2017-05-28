@@ -1,5 +1,5 @@
-const path = require('path');
-const webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
 
 /*
  This was largely based off this tutorial:
@@ -8,11 +8,11 @@ const webpack = require('webpack');
  Seems like relatively sane defaults as a starting point :)
 */
 
-let config = {
+const config = {
   // Sets the default path where
   context: path.resolve(__dirname, './js'),
   entry: {
-    app: './script.js'
+    app: './script.js',
   },
   module: {
     rules: [
@@ -25,14 +25,14 @@ let config = {
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader'
-        ] // The order of use is backwards - so sass-loader is used first
+          'sass-loader',
+        ], // The order of use is backwards - so sass-loader is used first
       },
       {
         test: /\.(woff2?|ttf|eot|jpe?g|png|gif|svg)$/,
         loader: 'file-loader?name=../[path]/../[name].[ext]',
-      }
-    ]
+      },
+    ],
   },
   output: {
     path: path.resolve(__dirname, './assets'),
@@ -41,7 +41,7 @@ let config = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, './html'),
-  }
+  },
 };
 
 module.exports = config;
