@@ -4,14 +4,26 @@
   "main": "index.js",
   "repository": "https://github.com/daily-bruin/gradissue-2017.git",
   "scripts": {
+    "start": "webpack --config webpack.config.js",
+    "serve": "webpack-dev-server",
+    "build": "webpack -p",
     "css": "node-sass sass/style.scss -o build/css"
   },
-  "dependencies": {},
+  "dependencies": {
+    "file-loader": "^0.11.1",
+    "leaflet": "^1.0.3",
+    "leaflet-providers": "^1.1.16"
+  },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
     "browser-sync": "^2.18.12",
+    "css-loader": "^0.28.3",
     "eslint": "^3.19.0",
     "node-sass": "^4.5.3",
-    "stylelint": "^7.10.1"
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.1",
+    "stylelint": "^7.10.1",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "2"
   }
 }
