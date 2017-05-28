@@ -1,4 +1,5 @@
 import path from 'path';
+import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import webpack from 'webpack';
 
 /*
@@ -39,9 +40,19 @@ const config = {
     filename: '[name].bundle.js',
     publicPath: '/assets',
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, './html'),
-  },
+  watch: true,
+  plugins: [
+    new BrowserSyncPlugin({
+      // browse to http://localhost:8080/ during development,
+      // ./public directory is being served
+      host: 'localhost',
+      port: 3000,
+      files: ['./html/*.html'],
+      server: {
+        baseDir: ['html'],
+      },
+    }),
+  ],
 };
 
 module.exports = config;
