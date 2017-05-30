@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
 
   [contenteditable="true"] {
     padding: 3px;
-    outline: 1px dashed #CCC;
+    outline: 1px dashed #ccc;
   }
 
   .sidetext {
@@ -50,4 +50,34 @@ h1, h2, h3, h4, h5, h6 {
       margin-bottom: 0;
     }
   }
+}
+
+.textcomplete-dropdown {
+  border: 1px solid #ddd;
+  background-color: white;
+  z-index: 999999 !important;
+}
+
+.textcomplete-dropdown li {
+  border-top: 1px solid #ddd;
+  padding: 2px 5px;
+}
+
+.textcomplete-dropdown li:first-child {
+  border-top: none;
+}
+
+.textcomplete-dropdown li:hover,
+.textcomplete-dropdown .active {
+  background-color: rgb(110, 183, 219);
+}
+
+.textcomplete-dropdown {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.textcomplete-dropdown a:hover {
+  cursor: pointer;
 }
