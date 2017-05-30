@@ -16,7 +16,7 @@ $(() => {
   $qnaModal.foundation("open");
 
   places
-    .search({"query": "Paris", "type": "city"}, function(err, res) {
+    .search({"query": "Singapore", "type": "city"}, function(err, res) {
       if (err) {
         throw err;
       }
@@ -29,10 +29,10 @@ $(() => {
     {
       match: /(^|\b)([\w,\s]{2,})$/,
       search: function(query, callback) {
-        console.log(query);
         places.search({
           "query": query,
-          "type": "city"
+          "type": "city",
+          "hitsPerPage": 6
         },
         (err, res) => {
           if(err) {
@@ -44,7 +44,14 @@ $(() => {
       // #5 - Template used to display each result obtained by the Algolia API
       template: function (hit) {
         // Returns the highlighted version of the name attribute
-        return hit._highlightResult.locale_names.default[0].value;
+        var ret = hit._highlightResult.locale_names.default[0].value
+        if(hit._highlightResult.administrative) {
+          return ret +
+            '<p>' + hit._highlightResult.administrative[0].value + '</p>';
+        } else {
+          return ret +
+            '<p>' + hit._highlightResult.country.default.value + '</p>';
+        }
       },
       // #6 - Template used to display the selected result in the textarea
       replace: function (hit) {
