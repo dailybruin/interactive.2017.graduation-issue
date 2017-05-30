@@ -4,6 +4,7 @@
   "main": "index.js",
   "repository": "https://github.com/daily-bruin/gradissue-2017.git",
   "scripts": {
+    "start": "nodemon server.js",
     "copy-html": "cp source/html/* build/",
     "compile-js:dev": "babel source/js -d build/js --source-maps",
     "autoprefix": "postcss --use autoprefixer -r build/css/*.css",
@@ -12,8 +13,12 @@
     "dev": "watch 'npm run copy-html' source/html/ & watch 'npm run compile-js:dev' source/js/ & watch 'npm run compile-sass:dev' source/sass/ & npm run browser-sync"
   },
   "dependencies": {
+    "express": "^4.15.3",
     "leaflet": "^1.0.3",
-    "leaflet-providers": "^1.1.16"
+    "leaflet-providers": "^1.1.16",
+    "morgan": "^1.8.2",
+    "nodemon": "^1.11.0",
+    "redis": "^2.7.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
