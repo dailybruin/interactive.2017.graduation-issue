@@ -6,11 +6,12 @@
   "scripts": {
     "start": "nodemon server.js",
     "copy-html": "cp source/html/* build/",
+    "copy-static": "mkdir -p build/static && cp source/static/* build/static/",
     "compile-js:dev": "babel source/js -d build/js --source-maps",
     "autoprefix": "postcss --use autoprefixer -r build/css/*.css",
     "compile-sass:dev": "node-sass source/sass/*.scss -o build/css && postcss --use autoprefixer -r build/css/*.css",
     "browser-sync": "browser-sync start --server build/ --files build/ --reload-delay 2000",
-    "dev": "watch 'npm run copy-html' source/html/ & watch 'npm run compile-js:dev' source/js/ & watch 'npm run compile-sass:dev' source/sass/ & npm run browser-sync"
+    "dev": "watch 'npm run copy-static' source/static/ & watch 'npm run copy-html' source/html/ & watch 'npm run compile-js:dev' source/js/ & watch 'npm run compile-sass:dev' source/sass/ & npm run browser-sync"
   },
   "dependencies": {
     "express": "^4.15.3",
@@ -32,6 +33,7 @@
     "eslint-plugin-import": "^2.3.0",
     "htmlhint": "^0.9.13",
     "node-sass": "^4.5.3",
+    "postcss-cli": "^4.0.0",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",
     "watch": "^1.0.2"

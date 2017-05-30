@@ -1,7 +1,16 @@
-<<<<<<< Updated upstream
-const s = 'Hello world!!!';
-=======
-const s = 'Hello world!'
->>>>>>> Stashed changes
+$(() => {
+  var $main = $(".main");
+  var $qnaModal = $("#qna-modal");
 
-console.log(s);
+  $(document).foundation();
+
+  $qnaModal.on("open.zf.reveal", () => {
+    $main.addClass("blur");
+  })
+
+  $qnaModal.on("closed.zf.reveal", () => {
+    $main.removeClass("blur");
+  })
+
+  $qnaModal.foundation("open");
+});

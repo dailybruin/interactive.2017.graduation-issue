@@ -1,12 +1,53 @@
+$font-stack: "Muli", sans-serif;
+
 body {
-  background-color: blue;
+  font-family: $font-stack;
+  font-weight: 400;
 }
 
-// hi
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-stack;
+  font-weight: 300;
+}
 
-.example {
-  display: flex;
-  transition: all 0.5s;
-  user-select: none;
-  background: linear-gradient(to bottom, white, black);
+.blur {
+  filter: blur(4px);
+}
+
+#qna-modal {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.65);
+
+  .container {
+    /* TODO: Add margin-right for bigger screens */
+    margin-top: 5em;
+  }
+
+  h1 {
+    line-height: 1.5em;
+  }
+
+  [contenteditable="true"] {
+    padding: 3px;
+    outline: 1px dashed #CCC;
+  }
+
+  .sidetext {
+    margin-top: 1.5em;
+
+    .db {
+      font-weight: 800;
+      font-size: 0.8em;
+    }
+
+    .grad {
+      font-family: "Sacramento", cursive;
+      font-size: 1.7em;
+    }
+
+    h4 {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+  }
 }
