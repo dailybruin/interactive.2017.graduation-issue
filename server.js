@@ -8,11 +8,12 @@ const PROD = process.env.PRODUCTION;
 let app = express();
 
 app.use(logger('dev'));
+app.use(express.static('build'));
 
-if(!PROD) {
-  //enable CORS when in development
-  //will be using a reverse proxy or something in prod
-  app.use(function(req, res, next) {
+if (!PROD) {
+  // enable CORS when in development
+  // will be using a reverse proxy or something in prod
+  app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
