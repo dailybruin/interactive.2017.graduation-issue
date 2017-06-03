@@ -1,7 +1,21 @@
+require('leaflet.polyline.snakeanim');
+
 $(() => {
   var $main = $(".main");
   var $qnaModal = $("#qna-modal");
   var places = algoliasearch.initPlaces();
+
+  const UCLA_LOC = [34.0689, -118.4452];
+
+  const TO_PATH_OPTS = {
+    color: '#ffe800',
+    weight: 1
+  };
+
+  const FROM_PATH_OPTS = {
+    color: '#3284bf',
+    weight: 1
+  };
 
   $(document).foundation();
 
@@ -70,9 +84,10 @@ $(() => {
     }
   ]);
 
-  L.Polyline.Arc([34.0289, -118.4152], [34.0689, -118.4452], {
-    color: '#ffe800',
-    weight: 1
-  }).addTo(map);
+  $(".submit-form").click(() => {
+    var toArc =  L.Polyline.Arc(fromloc, UCLA_LOC, TO_PATH_OPTS).addTo(map).snakeIn();
+    var fromArc =  L.Polyline.Arc(UCLA_LOC, toloc, FROM_PATH_OPTS).addTo(map).snakeIn();
 
+    $qnaModal.foundation("close");
+  });
 });
