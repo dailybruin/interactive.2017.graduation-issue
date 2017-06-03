@@ -23,6 +23,17 @@ em {
   width: 100%;
 }
 
+.line {
+  opacity: 0.5;
+  transition: opacity 0.2s, stroke-width 0.2s;
+
+  &:hover,
+  &.hover {
+    opacity: 1;
+    stroke-width: 2.5;
+  }
+}
+
 #qna-modal {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.45);

@@ -1,30 +1,42 @@
 require('leaflet.polyline.snakeanim');
 
 $(() => {
-  var $main = $(".main");
-  var $qnaModal = $("#qna-modal");
-  var places = algoliasearch.initPlaces();
+  let $main = $(".main");
+  let $qnaModal = $("#qna-modal");
+  let places = algoliasearch.initPlaces();
 
   const UCLA_LOC = [34.0689, -118.4452];
+  const LocalStorage = window.localStorage;
 
   const TO_PATH_OPTS = {
     color: '#ffe800',
-    weight: 1
+    weight: 1,
+    offset: 10,
+    vertices: 15,
+    className: "line",
   };
 
   const FROM_PATH_OPTS = {
     color: '#3284bf',
-    weight: 1
+    weight: 1,
+    offset: 10,
+    vertices: 15,
+    className: "line",
   };
 
-  $(document).foundation();
+  let submission = LocalStorage.getItem('submission');
+
+  // Has the form been previously filled?
+  if(!submission) {
+    $(document).foundation();
+  }
 
   var map = L.map('map', {
     zoomSnap: 0.5,
     zoomDelta: 0.5,
   });
 
-  map.setView([34.0689, -118.4452], 10);
+  map.setView([34.0689, -118.4452], 9);
   L.tileLayer.provider('CartoDB.DarkMatter').addTo(map);
 
   $qnaModal.on("open.zf.reveal", () => {
@@ -38,8 +50,8 @@ $(() => {
   $qnaModal.foundation("open");
 
   // Default values corresponding to the initial form values
-  var fromloc = L.latLng([34.0522, -118.244]);
-  var toloc = L.latLng([45.5088, -73.5879]);
+  var fromloc = {lat: 34.0522, lng: -118.244};
+  var toloc = {lat: 45.5088, lng: -73.5879};
 
   $(".getloc").textcomplete([
     {
@@ -72,21 +84,50 @@ $(() => {
       },
       // #6 - Template used to display the selected result in the textarea
       replace: function (hit) {
-        if (this.$el[0].id == "fromloc") {
-          fromloc = L.latLng(hit._geoloc);
-        } else if (this.$el[0].id == "toloc") {
-          toloc = L.latLng(hit._geoloc);
+        if (this.$el[0].id == "qna-fromloc") {
+          fromloc = hit._geoloc;
+        } else if (this.$el[0].id == "qna-toloc") {
+          toloc = hit._geoloc;
         }
-        console.log(fromloc);
-        console.log(toloc);
         return hit.locale_names.default[0];
       }
     }
   ]);
 
   $(".submit-form").click(() => {
-    var toArc =  L.Polyline.Arc(fromloc, UCLA_LOC, TO_PATH_OPTS).addTo(map).snakeIn();
-    var fromArc =  L.Polyline.Arc(UCLA_LOC, toloc, FROM_PATH_OPTS).addTo(map).snakeIn();
+    let formEls = $("span[id^='qna']");
+    let params = {};
+    formEls.each(function() {
+      var $this = $(this);
+      params[$this[0].id.substring(4)] = $this.text().trim();
+    });
+
+    console.log(fromloc);
+
+    params["from"] = fromloc;
+    params["to"] = toloc;
+
+    console.log(params);
+
+    $.post("/entries", params)
+    .done((res) => {
+      console.log(res);
+    });
+
+    console.log(params);
+
+
+    const PathClass = "path-0";
+    let toOpts = $.extend({}, TO_PATH_OPTS, { className: "line " + PathClass} );
+    let fromOpts = $.extend({}, FROM_PATH_OPTS, { className: "line " + PathClass} );
+    var toArc =  L.Polyline.Arc(fromloc, UCLA_LOC, toOpts).addTo(map).snakeIn();
+    var fromArc =  L.Polyline.Arc(UCLA_LOC, toloc, fromOpts).addTo(map).snakeIn();
+
+    let $paths = $("." + PathClass);
+    // Unfortunate hack to get the multiple hovering effect to work
+    $paths.hover(() => {
+      $paths.toggleClass("hover");
+    });
 
     $qnaModal.foundation("close");
   });
