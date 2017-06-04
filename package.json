@@ -5,7 +5,7 @@
   "repository": "https://github.com/daily-bruin/gradissue-2017.git",
   "scripts": {
     "start": "nodemon --ignore build/ server.js",
-    "postinstall": "npm run copy-html && npm run copy-static && npm run compile-js:dev && npm run compile-sass:dev",
+    "postinstall": "mkdir -p build && npm run copy-html && npm run copy-static && npm run compile-js:dev && npm run compile-sass:dev",
     "copy-html": "cp source/html/* build/",
     "copy-static": "mkdir -p build/static && cp source/static/* build/static/",
     "compile-js:dev": "babel source/js -d build/js --source-maps && browserify build/js/script.js -o build/js/bundle.js",
