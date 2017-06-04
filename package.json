@@ -1,18 +1,18 @@
 {
   "name": "gradissue-2017",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/daily-bruin/gradissue-2017.git",
   "scripts": {
-    "start": "npm run build && nodemon --ignore build/ server.js",
-    "build": "npm run copy-html && npm run copy-static && npm run compile-js:dev && npm run compile-sass:dev",
+    "start": "nodemon --ignore build/ server.js",
+    "postinstall": "npm run copy-html && npm run copy-static && npm run compile-js:dev && npm run compile-sass:dev",
     "copy-html": "cp source/html/* build/",
     "copy-static": "mkdir -p build/static && cp source/static/* build/static/",
     "compile-js:dev": "babel source/js -d build/js --source-maps && browserify build/js/script.js -o build/js/bundle.js",
     "autoprefix": "postcss --use autoprefixer -r build/css/*.css",
     "compile-sass:dev": "node-sass source/sass/*.scss -o build/css && postcss --use autoprefixer -r build/css/*.css",
     "browser-sync": "browser-sync start --server build/ --files build/ --reload-delay 2000",
-    "dev": "watch 'npm run copy-static' source/static/ & watch 'npm run copy-html' source/html/ & watch 'npm run compile-js:dev' source/js/ & watch 'npm run compile-sass:dev' source/sass/ & npm run browser-sync"
+    "dev": "watch 'npm run copy-static' source/static/ & watch 'npm run copy-html' source/html/ & watch 'npm run compile-js:dev' source/js/ & watch 'npm run compile-sass:dev' source/sass/ & npm run browser-sync & npm start"
   },
   "dependencies": {
     "apicache": "^0.8.6",
