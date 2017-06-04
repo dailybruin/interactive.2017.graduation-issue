@@ -15,6 +15,7 @@
     "dev": "watch 'npm run copy-static' source/static/ & watch 'npm run copy-html' source/html/ & watch 'npm run compile-js:dev' source/js/ & watch 'npm run compile-sass:dev' source/sass/ & npm run browser-sync"
   },
   "dependencies": {
+    "apicache": "^0.8.6",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "leaflet": "^1.0.3",
