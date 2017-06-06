@@ -1,12 +1,43 @@
 body {
-  background-color: blue;
+  background-color: black;
 }
 
-// hi
+ul {
+  list-style: none outside none;
+  padding-left: 0;
+  margin: 0;
+}
 
-.example {
-  display: flex;
-  transition: all 0.5s;
-  user-select: none;
-  background: linear-gradient(to bottom, white, black);
+.article-thumbnail {
+  background-color: #ed3020;
+  text-align: center;
+  color: #fff;
+}
+
+.article-image {
+  position: relative;
+  z-index: 2;
+
+  &:hover {
+    opacity: 0.3;
+    transition: all 0.3s;
+  }
+}
+
+.article-details {
+  height: 100%;
+  width: inherit;
+  position: absolute;
+
+  h4 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  span {
+
+  }
+  p {
+
+  }
 }
