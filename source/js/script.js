@@ -1,8 +1,9 @@
 $(document).ready(() => {
   $('.article-slider').lightSlider({
-    loop: true,
-    keyPress: true,
+    loop: false,
+    slideMove: 2,
     pager: false,
     item: 5,
+    enableDrag: false,
   });
 });
