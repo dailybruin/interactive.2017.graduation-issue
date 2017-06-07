@@ -30,7 +30,7 @@
                   <span>{{article.author}}</span>
                   <p>{{article.description}}</p>
                 </div>
-                <img class="article-image" src="./img/placeholder.png" alt="">
+                <img class="article-image" src="{{article.image}}" alt="{{article.image_alt}}">
               </li>
             {% endfor %}
           </ul>

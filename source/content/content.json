@@ -6,32 +6,44 @@
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (1)"
+        "description": "Description Goes Here (1)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (2)"
+        "description": "Description Goes Here (2)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (3)"
+        "description": "Description Goes Here (3)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (4)"
+        "description": "Description Goes Here (4)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (5)"
+        "description": "Description Goes Here (5)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (6)"
+        "description": "Description Goes Here (6)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       }
     ]
   },
@@ -41,32 +53,44 @@
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (1)"
+        "description": "Description Goes Here (1)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (2)"
+        "description": "Description Goes Here (2)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (3)"
+        "description": "Description Goes Here (3)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (4)"
+        "description": "Description Goes Here (4)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (5)"
+        "description": "Description Goes Here (5)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (6)"
+        "description": "Description Goes Here (6)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       }
     ]
   },
@@ -76,32 +100,44 @@
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (1)"
+        "description": "Description Goes Here (1)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (2)"
+        "description": "Description Goes Here (2)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (3)"
+        "description": "Description Goes Here (3)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (4)"
+        "description": "Description Goes Here (4)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (5)"
+        "description": "Description Goes Here (5)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (6)"
+        "description": "Description Goes Here (6)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       }
     ]
   },
@@ -111,37 +147,51 @@
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (1)"
+        "description": "Description Goes Here (1)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (2)"
+        "description": "Description Goes Here (2)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (3)"
+        "description": "Description Goes Here (3)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (4)"
+        "description": "Description Goes Here (4)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (5)"
+        "description": "Description Goes Here (5)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
-        "description": "Description Goes Here (6)"
+        "description": "Description Goes Here (6)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       },
       {
         "title": "Hey",
         "author": "nathan",
-        "description": "Description Goes Here (7)"
+        "description": "Description Goes Here (7)",
+        "image": "img/placeholder.png",
+        "image_alt": "image text"
       }
     ]
   }
