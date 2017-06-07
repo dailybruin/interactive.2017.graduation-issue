@@ -4,13 +4,13 @@
   "main": "index.js",
   "repository": "https://github.com/daily-bruin/gradissue-2017.git",
   "scripts": {
-    "copy-html": "cp source/html/* build/",
+    "compile-nunjucks": "nunjucks index.nunjucks source/content/content.json -p source/templates -o build",
     "copy-img": "cp source/img/* build/img/",
     "compile-js:dev": "babel source/js -d build/js --source-maps",
     "autoprefix": "postcss --use autoprefixer -r build/css/*.css",
     "compile-sass:dev": "node-sass source/sass/*.scss -o build/css && postcss --use autoprefixer -r build/css/*.css",
     "browser-sync": "browser-sync start --server build/ --files build/ --reload-delay 2000",
-    "dev": "watch 'npm run copy-html' source/html/ & watch 'npm run copy-img' source/img/ & watch 'npm run compile-js:dev' source/js/ & watch 'npm run compile-sass:dev' source/sass/ & npm run browser-sync"
+    "dev": "watch 'npm run compile-nunjucks' source/templates/ source/content/ & watch 'npm run copy-img' source/img/ & watch 'npm run compile-js:dev' source/js/ & watch 'npm run compile-sass:dev' source/sass/ & npm run browser-sync"
   },
   "dependencies": {
     "leaflet": "^1.0.3",
@@ -32,6 +32,8 @@
     "eslint-plugin-react": "^7.0.1",
     "htmlhint": "^0.9.13",
     "node-sass": "^4.5.3",
+    "nunjucks": "^3.0.1",
+    "nunjucks-cli": "^0.5.1",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",
     "watch": "^1.0.2"

@@ -1,0 +1,149 @@
+{
+  "sections": [
+  {
+    "header": "News",
+    "articles": [
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (1)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (2)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (3)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (4)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (5)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (6)"
+      }
+    ]
+  },
+  {
+    "header": "Opinion",
+    "articles": [
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (1)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (2)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (3)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (4)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (5)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (6)"
+      }
+    ]
+  },
+  {
+    "header": "Sports",
+    "articles": [
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (1)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (2)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (3)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (4)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (5)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (6)"
+      }
+    ]
+  },
+  {
+    "header": "Arts & Entertainment",
+    "articles": [
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (1)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (2)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (3)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (4)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (5)"
+      },
+      {
+        "title": "Title Goes Here",
+        "author": "Author Goes Here",
+        "description": "Description Goes Here (6)"
+      },
+      {
+        "title": "Hey",
+        "author": "nathan",
+        "description": "Description Goes Here (7)"
+      }
+    ]
+  }
+  ]
+}
