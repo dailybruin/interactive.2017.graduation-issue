@@ -8,42 +8,48 @@
         "author": "Author Goes Here",
         "description": "Description Goes Here (1)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (2)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (3)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (4)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (5)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (6)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       }
     ]
   },
@@ -55,42 +61,48 @@
         "author": "Author Goes Here",
         "description": "Description Goes Here (1)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (2)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (3)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (4)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (5)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (6)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       }
     ]
   },
@@ -102,42 +114,48 @@
         "author": "Author Goes Here",
         "description": "Description Goes Here (1)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (2)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (3)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (4)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (5)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (6)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       }
     ]
   },
@@ -149,49 +167,56 @@
         "author": "Author Goes Here",
         "description": "Description Goes Here (1)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (2)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (3)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (4)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (5)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Title Goes Here",
         "author": "Author Goes Here",
         "description": "Description Goes Here (6)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       },
       {
         "title": "Hey",
         "author": "nathan",
         "description": "Description Goes Here (7)",
         "image": "img/placeholder.png",
-        "image_alt": "image text"
+        "image-alt": "image text",
+        "link": "http://dailybruin.com"
       }
     ]
   }
