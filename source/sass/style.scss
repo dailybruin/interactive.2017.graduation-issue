@@ -1,12 +1,78 @@
+/*
+  media breakpoints as reccomended by Foundation:
+
+  // Small only
+  @media screen and (max-width: 39.9375em) {}
+
+  // Medium and up
+  @media screen and (min-width: 40em) {}
+
+  // Medium only
+  @media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+  // Large and up
+  @media screen and (min-width: 64em) {}
+
+  // Large only
+  @media screen and (min-width: 64em) and (max-width: 74.9375em) {}
+*/
+
 body {
-  background-color: blue;
+  background-color: black;
 }
 
-// hi
+ul {
+  list-style: none outside none;
+  padding-left: 0;
+  margin: 0;
+}
 
-.example {
-  display: flex;
-  transition: all 0.5s;
-  user-select: none;
-  background: linear-gradient(to bottom, white, black);
+.article-thumbnail {
+  background-color: #ed3020;
+  text-align: center;
+  color: #fff;
+}
+
+.article-image {
+  position: relative;
+  z-index: 2;
+
+  &:hover {
+    opacity: 0.3;
+    transition: all 0.3s;
+  }
+}
+
+.section-header {
+  color: white;
+  font-family: "Avenir", "Lato", sans-serif;
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.article-details {
+  height: 100%;
+  width: inherit;
+  position: absolute;
+  font-family: "Avenir", "Lato", sans-serif;
+  font-style: italic;
+
+  h4 {
+    font-weight: bolder;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    @media screen and (max-width: 63.9375em) {
+      color: black;
+    }
+  }
+
+  span {
+    text-transform: uppercase;
+  }
+
+  p {
+    font-weight: lighter;
+  }
 }
