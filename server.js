@@ -1,9 +1,9 @@
 const logger = require('morgan');
 const express = require('express');
 const bodyParser = require('body-parser');
-const redis = require('redis');
 const Sequelize = require('sequelize');
 const apicache = require('apicache');
+const nunjucks = require('nunjucks');
 
 const PORT = process.env.PORT || process.argv[2] || 3030;
 const DB = process.env.DB || 'grad-issue-2017';
@@ -93,6 +93,12 @@ app.use(express.static('build'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+nunjucks.configure('source/templates', {
+  autoescape: true,
+  express: app,
+  watch: !PROD,
+});
+
 if (!PROD) {
   // enable CORS when in development
   // will be using a reverse proxy or something in prod
@@ -136,6 +142,12 @@ app.get('/reset', (req, res) => {
     res.send("Go away.");
   }
 });
+
+app.get('/', (req, res) => {
+  // Test
+  var placeHolder = require("./source/content/content.json");
+  res.render("index.nunjucks", placeHolder);
+})
 
 app.listen( PORT , '0.0.0.0', () => {
   console.log("Server started on port %d.", PORT);

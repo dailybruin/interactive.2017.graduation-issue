@@ -66,15 +66,6 @@ $(() => {
     $(document).foundation();
   }
 
-  // Open the modal
-  $qnaModal.on("open.zf.reveal", () => {
-    $main.addClass("blur");
-  })
-
-  $qnaModal.on("closed.zf.reveal", () => {
-    $main.removeClass("blur");
-  })
-
   $('.article-slider').lightSlider({
     loop: false,
     slideMove: 2,
@@ -83,6 +74,14 @@ $(() => {
     enableDrag: false,
   });
 
+  // Open the modal
+  $qnaModal.on("open.zf.reveal", () => {
+    $main.addClass("blur");
+  })
+
+  $qnaModal.on("closed.zf.reveal", () => {
+    $main.removeClass("blur");
+  })
 
   $qnaModal.foundation("open");
 
