@@ -5,14 +5,15 @@
   "repository": "https://github.com/daily-bruin/gradissue-2017.git",
   "scripts": {
     "start": "nodemon --ignore build/ server.js",
-    "postinstall": "mkdir -p build && npm run copy-html && npm run copy-static && npm run compile-js:dev && npm run compile-sass:dev",
+    "postinstall": "mkdir -p build && mkdir -p build/img && npm run copy-html && npm run copy-static && npm run compile-js:dev && npm run compile-sass:dev",
+    "copy-img": "cp source/img/* build/img/",
     "copy-html": "cp source/html/* build/",
     "copy-static": "mkdir -p build/static && cp source/static/* build/static/",
     "compile-js:dev": "babel source/js -d build/js --source-maps && browserify build/js/script.js -o build/js/bundle.js",
     "autoprefix": "postcss --use autoprefixer -r build/css/*.css",
     "compile-sass:dev": "node-sass source/sass/*.scss -o build/css && postcss --use autoprefixer -r build/css/*.css",
     "browser-sync": "browser-sync start --server build/ --files build/ --reload-delay 2000",
-    "dev": "watch 'npm run copy-static' source/static/ & watch 'npm run copy-html' source/html/ & watch 'npm run compile-js:dev' source/js/ & watch 'npm run compile-sass:dev' source/sass/ & npm run browser-sync & npm start"
+    "dev": "watch 'npm run copy-static' source/static/ & watch 'npm run copy-html' source/html/ & watch 'npm run compile-js:dev' source/js/ & watch 'npm run copy-img' source/img/ & watch 'npm run compile-sass:dev' source/sass/ & npm run browser-sync & npm start"
   },
   "dependencies": {
     "apicache": "^0.8.6",
@@ -26,7 +27,8 @@
     "pg": "^6.2.3",
     "pg-hstore": "^2.3.2",
     "redis": "^2.7.1",
-    "sequelize": "^3.30.4"
+    "sequelize": "^3.30.4",
+    "lightslider": "^1.1.6"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
@@ -37,11 +39,16 @@
     "browserify": "^14.4.0",
     "cpx": "^1.5.0",
     "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
     "htmlhint": "^0.9.13",
     "node-sass": "^4.5.3",
     "postcss-cli": "^4.0.0",
+    "nunjucks": "^3.0.1",
+    "nunjucks-cli": "^0.5.1",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",
     "watch": "^1.0.2"

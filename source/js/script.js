@@ -75,6 +75,15 @@ $(() => {
     $main.removeClass("blur");
   })
 
+  $('.article-slider').lightSlider({
+    loop: false,
+    slideMove: 2,
+    pager: false,
+    item: 5,
+    enableDrag: false,
+  });
+
+
   $qnaModal.foundation("open");
 
   var map = L.map('map', {
