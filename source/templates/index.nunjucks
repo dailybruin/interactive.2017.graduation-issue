@@ -20,9 +20,27 @@
 
   </head>
   <body>
-    <div class="container main">
-      <div id="map"></div>
-      <!--<p><a id="qna-trigger" data-open="qna-modal">Click me for a modal</a></p>-->
+    <div class="top row">
+      <div class="small-12 medium-9 small-centered columns">
+        <h1>Grad Issue</h1>
+        <p>This is really really sad :( </p>
+      </div>
+    </div>
+    <div id="map-row" class="row expanded collapse">
+      <div id="map" class="blur">
+      </div>
+      <div id="qna-modal" class="map-overlay">
+        <div class="container">
+          <h1 class="qna-form">I am from <span class="getloc" id="qna-fromloc" contenteditable="true">Los Angeles</span>, and after <span contenteditable="true" id="qna-years">4</span> amazing years at UCLA, I am graduating with a <span contenteditable="true" id="qna-degree">BA</span> in <span contenteditable="true" id="qna-major">Economics</span>, and I'll be going to <span class="getloc" id="qna-toloc" contenteditable="true">Montreal</span> for <span contenteditable="true" id="qna-next">Grad School</span>.
+          <a class="submit-form hvr-skew-forward"><span>GO</span><i class="fa fa-caret-right" aria-hidden="true"></i></a></h1>
+          <div class="sidetext">
+            <h4><span class="db">DAILY BRUIN</span> | The <span class="grad">Graduation</span> Issue</h4>
+          </div>
+        </div>
+        <button class="close-button" data-close type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     </div>
     <div class="row">
       {% for section in sections %}
@@ -45,7 +63,7 @@
         </div>
       {% endfor %}
     </div>
-
+    <!--
     <div class="full reveal" id="qna-modal" data-reveal>
       <div class="container">
         <h1 class="qna-form">I am from <span class="getloc" id="qna-fromloc" contenteditable="true">Los Angeles</span>, and after <span contenteditable="true" id="qna-years">4</span> amazing years at UCLA, I am graduating with a <span contenteditable="true" id="qna-degree">BA</span> in <span contenteditable="true" id="qna-major">Economics</span>, and I'll be going to <span class="getloc" id="qna-toloc" contenteditable="true">Montreal</span> for <span contenteditable="true" id="qna-next">Grad School</span>.
@@ -58,6 +76,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+    -->
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
