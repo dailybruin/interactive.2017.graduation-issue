@@ -101,6 +101,8 @@ const creds = {
   private_key: GOOGLE_SHEETS_PRIVKEY,
 }
 
+console.log(creds);
+
 GoogleDoc.useServiceAccountAuth(creds, (done) => {
   GoogleDoc.getInfo((err, info) => {
     if(err) {
