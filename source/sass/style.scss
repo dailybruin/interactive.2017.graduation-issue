@@ -1,3 +1,4 @@
+$font-stack: "Avenir", "Lato", sans-serif;
 /*
   media breakpoints as reccomended by Foundation:
 
@@ -18,7 +19,20 @@
 */
 
 body {
+  font-family: $font-stack;
+  font-weight: 400;
+  color: #fff;
   background-color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-stack;
+  font-weight: 300;
+  color: #fff;
+}
+
+em {
+  font-style: italic;
 }
 
 ul {
@@ -27,25 +41,34 @@ ul {
   margin: 0;
 }
 
-.article-thumbnail {
-  background-color: #ed3020;
-  text-align: center;
-  color: #fff;
+.blur {
+  filter: blur(4px);
 }
 
-.article-image {
-  position: relative;
-  z-index: 2;
+#map {
+  height: 40em;
+  max-height: 70vh;
+  width: 100%;
+}
 
-  &:hover {
-    opacity: 0.3;
-    transition: all 0.3s;
+.top {
+  height: 90vh;
+  padding-top: 10em;
+}
+
+.line {
+  opacity: 0.5;
+  transition: opacity 0.3s, stroke-width 0.3s;
+
+  &:hover,
+  &.hover {
+    opacity: 1;
+    stroke-width: 2.5;
   }
 }
 
 .section-header {
   color: white;
-  font-family: "Avenir", "Lato", sans-serif;
   font-style: italic;
   font-weight: lighter;
 }
@@ -54,7 +77,6 @@ ul {
   height: 100%;
   width: inherit;
   position: absolute;
-  font-family: "Avenir", "Lato", sans-serif;
   font-style: italic;
 
   h4 {
@@ -75,4 +97,143 @@ ul {
   p {
     font-weight: lighter;
   }
+}
+
+.article-thumbnail {
+  background-color: #ed3020;
+  text-align: center;
+  color: #fff;
+}
+
+.article-image {
+  position: relative;
+  z-index: 2;
+
+  &:hover {
+    opacity: 0.3;
+    transition: all 0.3s;
+  }
+}
+
+#map-row {
+  position: relative;
+  overflow: hidden;
+}
+
+#qna-modal {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+
+  .container {
+    /* TODO: Add margin-right for bigger screens */
+    padding: 5em;
+  }
+
+  h1 {
+    line-height: 1.5em;
+    font-size: 2.4rem;
+    a {
+      color: #fff;
+
+      span {
+        margin-right: 0.3em;
+        vertical-align: bottom;
+        font-size: 2rem;
+      }
+
+      &:hover {
+        color: #bbb;
+      }
+    }
+  }
+
+  [contenteditable="true"] {
+    padding: 1px 3px;
+    outline: 1px dashed #ccc;
+  }
+
+  .sidetext {
+    margin-top: 1.5em;
+
+    .db {
+      font-weight: 800;
+      font-size: 0.8em;
+    }
+
+    .grad {
+      font-family: "Sacramento", cursive;
+      font-size: 1.7em;
+    }
+
+    h4 {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.textcomplete-dropdown {
+  border: 1px solid #ccc;
+  background-color: white;
+  z-index: 999999 !important;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    border-top: 1px solid #ccc;
+    padding: 2px 5px;
+    margin: 0.5em;
+
+    p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    &:first-child {
+      border-top: none;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+
+  li:hover,
+  .active {
+    background-color: #222;
+    color: #fff;
+  }
+
+  a:hover {
+    cursor: pointer;
+  }
+}
+
+/** Animations **/
+
+/* Skew Forward */
+.hvr-skew-forward {
+  display: inline-block;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+}
+.hvr-skew-forward:hover, .hvr-skew-forward:focus, .hvr-skew-forward:active {
+  -webkit-transform: skew(-10deg);
+  transform: skew(-10deg);
 }
