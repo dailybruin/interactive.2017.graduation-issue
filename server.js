@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
 const apicache = require('apicache');
+const shortid = require('shortid');
+const fileUpload = require('express-fileupload');
 const nunjucks = require('nunjucks');
 
 const PORT = process.env.PORT || process.argv[2] || 3030;
@@ -89,7 +91,9 @@ let app = express();
 let cache = apicache.middleware;
 
 app.use(logger('dev'));
+app.use(fileUpload());
 app.use(express.static('build'));
+app.use('/img-content', express.static('uploads'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -124,6 +128,38 @@ app.post('/entries', (req, res) => {
     apicache.clear();
     res.send('Done');
   })
+});
+
+app.get('/upload', (req, res) => {
+  // Wow much secure
+  if(req.query.key === "bruin111") {
+    res.render("upload.html");
+  } else {
+    res.send("Go away.")
+  }
+});
+
+app.post('/upload', (req, res) => {
+  if(req.body.key !== "bruin111") {
+    return res.send("Go away.");
+  }
+
+  if(!req.files.img) {
+    return res.send("No files provided.");
+  }
+
+  const file = req.files.img;
+  const fileName = `${file.name}-${shortid.generate()}`;
+
+  file.mv(`./uploads/${fileName}`, (err) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+
+    return res.send(`<p>Your file (PASTE THIS LINK TO THE GOOGLE DOC)</p>
+                    <pre>/img-content/${fileName}</pre>
+                    <img width="400" src="/img-content/${fileName}">`);
+  });
 });
 
 // Remove in Prod maybe?
