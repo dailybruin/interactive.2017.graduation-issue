@@ -104,6 +104,7 @@ const creds = {
 console.log(creds);
 
 GoogleDoc.useServiceAccountAuth(creds, (done) => {
+  console.log("Getting service account auth...");
   GoogleDoc.getInfo((err, info) => {
     if(err) {
       console.log('Google Auth Failed!', err);
