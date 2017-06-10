@@ -105,6 +105,7 @@ console.log(creds);
 
 GoogleDoc.useServiceAccountAuth(creds, (done) => {
   console.log("Getting service account auth...");
+  /*
   GoogleDoc.getInfo((err, info) => {
     if(err) {
       console.log('Google Auth Failed!', err);
@@ -112,8 +113,8 @@ GoogleDoc.useServiceAccountAuth(creds, (done) => {
     }
     console.log('Loaded doc: ' + info.title + ' by '+ info.author.email);
     GoogleSheet = info.worksheets[0];
-  });
-})
+  });*/
+});
 
 let app = express();
 let cache = apicache.middleware;
@@ -218,7 +219,17 @@ app.get('/reset', (req, res) => {
 
 app.get('/', cache('1 hour'), (req, res) => {
   if(!GoogleSheet) {
-    return res.send("Server restarting... Hang tight!");
+    GoogleDoc.getInfo((err, info) => {
+      if(err) {
+        console.log('Google Auth Failed!', err);
+        res.send("Something went wrong :(");
+        process.exit(1);
+        return;
+      }
+      console.log('Loaded doc: ' + info.title + ' by '+ info.author.email);
+      GoogleSheet = info.worksheets[0];
+    });
+    return res.send("Server restarting hang tight...");
   }
 
   GoogleSheet.getRows({
