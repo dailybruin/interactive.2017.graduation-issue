@@ -6,7 +6,7 @@ const apicache = require('apicache');
 const shortid = require('shortid');
 const fileUpload = require('express-fileupload');
 const nunjucks = require('nunjucks');
-var GoogleSpreadsheet = require('google-spreadsheet');
+const GoogleSpreadsheet = require('google-spreadsheet');
 
 const PORT = process.env.PORT || process.argv[2] || 3030;
 const DB = process.env.DB || 'grad-issue-2017';
@@ -101,11 +101,18 @@ const creds = {
   private_key: GOOGLE_SHEETS_PRIVKEY,
 }
 
-console.log(creds);
+GoogleDoc.getInfo((err, info) => {
+  if(err) {
+    console.log('Google Auth Failed!', err);
+    process.exit(1);
+  }
+  console.log('Loaded doc: ' + info.title + ' by '+ info.author.email);
+  GoogleSheet = info.worksheets[0];
+});
 
+/*
 GoogleDoc.useServiceAccountAuth(creds, (done) => {
   console.log("Getting service account auth...");
-  /*
   GoogleDoc.getInfo((err, info) => {
     if(err) {
       console.log('Google Auth Failed!', err);
@@ -113,8 +120,9 @@ GoogleDoc.useServiceAccountAuth(creds, (done) => {
     }
     console.log('Loaded doc: ' + info.title + ' by '+ info.author.email);
     GoogleSheet = info.worksheets[0];
-  });*/
+  });
 });
+*/
 
 let app = express();
 let cache = apicache.middleware;
@@ -219,6 +227,7 @@ app.get('/reset', (req, res) => {
 
 app.get('/', cache('1 hour'), (req, res) => {
   if(!GoogleSheet) {
+    /*
     GoogleDoc.getInfo((err, info) => {
       if(err) {
         console.log('Google Auth Failed!', err);
@@ -229,6 +238,7 @@ app.get('/', cache('1 hour'), (req, res) => {
       console.log('Loaded doc: ' + info.title + ' by '+ info.author.email);
       GoogleSheet = info.worksheets[0];
     });
+    */
     return res.send("Server restarting hang tight...");
   }
 
