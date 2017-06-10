@@ -6,6 +6,7 @@ const apicache = require('apicache');
 const shortid = require('shortid');
 const fileUpload = require('express-fileupload');
 const nunjucks = require('nunjucks');
+var GoogleSpreadsheet = require('google-spreadsheet');
 
 const PORT = process.env.PORT || process.argv[2] || 3030;
 const DB = process.env.DB || 'grad-issue-2017';
@@ -13,6 +14,10 @@ const DB_USER = process.env.DB_USER || 'postgres';
 const DB_PW = process.env.DB_PW || '';
 const DB_HOST = process.env.DB_HOST || 'localhost';
 const PROD = process.env.PRODUCTION;
+
+const GOOGLE_SHEETS_KEY = process.env.GSKEY;
+const GOOGLE_SHEETS_EMAIL = process.env.GSEMAIL;
+const GOOGLE_SHEETS_PRIVKEY = process.env.GSPKEY;
 
 const DB_URL = process.env.DATABASE_URL || null;
 
@@ -87,13 +92,31 @@ const Entry = sequelize.define('entry', {
 
 sequelize.sync();
 
+/* Google Sheets config */
+const GoogleDoc = new GoogleSpreadsheet(GOOGLE_SHEETS_KEY);
+let GoogleSheet = null;
+
+const creds = {
+  client_email: GOOGLE_SHEETS_EMAIL,
+  private_key: GOOGLE_SHEETS_PRIVKEY,
+}
+
+GoogleDoc.useServiceAccountAuth(creds, (done) => {
+  GoogleDoc.getInfo((err, info) => {
+    if(err) {
+      console.log('Google Auth Failed!', err);
+      process.exit(1);
+    }
+    console.log('Loaded doc: ' + info.title + ' by '+ info.author.email);
+    GoogleSheet = info.worksheets[0];
+  });
+})
+
 let app = express();
 let cache = apicache.middleware;
 
 app.use(logger('dev'));
 app.use(fileUpload());
-app.use(express.static('build'));
-app.use('/img-content', express.static('uploads'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -114,6 +137,7 @@ if (!PROD) {
 }
 
 app.get('/entries', cache('5 minutes'), (req, res) => {
+  req.apicacheGroup = 'entries';
   Entry.findAll({
     limit: 40,
     order: [['id', 'DESC']],
@@ -125,9 +149,19 @@ app.get('/entries', cache('5 minutes'), (req, res) => {
 app.post('/entries', (req, res) => {
   Entry.create(req.body)
   .then(() => {
-    apicache.clear();
+    apicache.clear('entries');
     res.send('Done');
   })
+});
+
+app.get('/clearcache', (req, res) => {
+  // Wow much secure
+  if(req.query.key === "bruin111") {
+    apicache.clear();
+    res.send("Cache cleared");
+  } else {
+    res.send("Go away.")
+  }
 });
 
 app.get('/upload', (req, res) => {
@@ -149,7 +183,7 @@ app.post('/upload', (req, res) => {
   }
 
   const file = req.files.img;
-  const fileName = `${file.name}-${shortid.generate()}`;
+  const fileName = `${shortid.generate()}-${file.name}`;
 
   file.mv(`./uploads/${fileName}`, (err) => {
     if (err) {
@@ -179,11 +213,37 @@ app.get('/reset', (req, res) => {
   }
 });
 
-app.get('/', (req, res) => {
-  // Test
-  var placeHolder = require("./source/content/content.json");
-  res.render("index.nunjucks", placeHolder);
-})
+app.get('/', cache('1 hour'), (req, res) => {
+  if(!GoogleSheet) {
+    return res.send("Server restarting... Hang tight!");
+  }
+
+  GoogleSheet.getRows({
+    offset: 1,
+    orderby: 'section'
+  }, (err, rows) => {
+    if(err) {
+      console.log(err);
+      return res.status(500).send("Server Error");
+    } else {
+      let final = rows.reduce((acc, row) => {
+        if(acc.sections.hasOwnProperty(row.section)) {
+          acc.sections[row.section].articles.push(row);
+        } else {
+          acc.sections[row.section] = {
+            header: row.section,
+            articles: [row]
+          }
+        }
+        return acc;
+      }, { sections: {} });
+      res.render("index.nunjucks", final);
+    }
+  });
+});
+
+app.use(express.static('build'));
+app.use('/img-content', express.static('uploads'));
 
 app.listen( PORT , '0.0.0.0', () => {
   console.log("Server started on port %d.", PORT);

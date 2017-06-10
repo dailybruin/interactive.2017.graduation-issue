@@ -1,5 +1,6 @@
 {
-  "sections": [
+  "sections": {
+  "News":
   {
     "header": "News",
     "articles": [
@@ -53,7 +54,7 @@
       }
     ]
   },
-  {
+  "Opinion": {
     "header": "Opinion",
     "articles": [
       {
@@ -106,7 +107,7 @@
       }
     ]
   },
-  {
+  "Sports" : {
     "header": "Sports",
     "articles": [
       {
@@ -159,7 +160,7 @@
       }
     ]
   },
-  {
+  "Arts & Entertainment":{
     "header": "Arts & Entertainment",
     "articles": [
       {
@@ -220,5 +221,5 @@
       }
     ]
   }
-  ]
+}
 }
