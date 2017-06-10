@@ -58,3 +58,7 @@ typings/
 .env
 
 /build
+
+uploads/
+
+priv.key

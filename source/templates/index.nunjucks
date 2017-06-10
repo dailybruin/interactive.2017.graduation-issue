@@ -43,9 +43,9 @@
       </div>
     </div>
     <div class="row">
-      {% for section in sections %}
+      {% for section_name, section in sections %}
         <div class="section large-12 columns">
-          <h1 class="section-header">{{section.header}}</h1>
+          <h1 class="section-header">{{section_name}}</h1>
           <ul class="article-slider">
             {% for article in section.articles %}
               <li class="article-thumbnail">
