@@ -69,8 +69,7 @@ ul {
 
 .section-header {
   color: white;
-  font-style: italic;
-  font-weight: lighter;
+  font-family: "Poppins";
 }
 
 .article-details {
@@ -99,10 +98,11 @@ ul {
   }
 }
 
-.article-thumbnail {
+.article-thumbnail.lslide{
   background-color: #ed3020;
   text-align: center;
   color: #fff;
+  width: 800px;
 }
 
 .article-image {
@@ -183,6 +183,7 @@ ul {
 .textcomplete-dropdown {
   border: 1px solid #ccc;
   background-color: white;
+  color: black;
   z-index: 999999 !important;
   list-style: none;
   padding: 0;

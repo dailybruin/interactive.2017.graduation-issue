@@ -79,9 +79,9 @@ $(() => {
   //  $main.addClass("blur");
   //})
 
-  //$qnaModal.on("closed.zf.reveal", () => {
+  // $qnaModal.on("closed.zf.reveal", () => {
   //  $main.removeClass("blur");
-  //})
+  // })
 
   //$qnaModal.foundation("open");
 
@@ -187,7 +187,11 @@ $(() => {
     $paths.hover(() => {
       $paths.toggleClass("hover");
     });
-
-    $qnaModal.foundation("close");
+    removeBlur()
+    $('#qna-modal').css('display', 'none');
   });
+  function removeBlur(){
+    $('#map').removeClass("blur");
+  }
 });
+
