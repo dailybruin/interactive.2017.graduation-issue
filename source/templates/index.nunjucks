@@ -44,27 +44,51 @@
     </div>
     <div class="row">
       {% for section_name, section in sections %}
-        <div class="section large-12 columns {{section_name}}">
-          <h1 class="section-header">{{section_name}}</h1>
-          <ul class="article-slider">
-            {% for article in section.articles %}
-              <li class="article-thumbnail" style="background-image:url('{{article.image}}');">
-                <div class="article-details">
+        {% if not ('30' in section_name) %}
+          <div class="section large-12 columns {{section_name}}">
+            <h1 class="section-header">{{section_name}}</h1>
+            <ul class="article-slider">
+              {% for article in section.articles %}
+                <li class="article-thumbnail">
+                  <div class="article-details">
+                    <a href="{{article.link}}">
+                      <h4>{{article.title}}</h4>
+                      <span>{{article.author}}</span>
+                      <p>{{article.description}}</p>
+                    </a>  
+                  </div>
                   <a href="{{article.link}}">
-                    <h4>{{article.title}}</h4>
-                    <span>{{article.author}}</span>
-                    <p>{{article.description}}</p>
-                  </a>  
-                </div> 
-                 
-              <!--<a href="{{article.link}}">
-                <img class="article-image" src="{{article.image}}" alt="{{article.image_alt}}">
-              </a>-->
-              </li>
-            {% endfor %}
+                    <div class="article-image-link" style="background-image:url('{{article.image}}');">
+
+                    </div>
+                  </a>
+                  
+                <!--<a href="{{article.link}}">
+                  <img class="article-image" src="{{article.image}}" alt="{{article.image_alt}}">
+                </a>-->
+                </li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </div>
       {% endfor %}
+      <div class="section row">
+        <h1 class="section-header">-30-</h1>
+          {% for section_name, section in sections %}
+            {% if '30' in section_name %}
+              {% for article in section.articles %}
+                <div class="container-30">
+                  <div class="photo-container">
+                    <img src="{{article.image}}" class="rounded">
+                  </div>
+                  <div class="author-30">
+                    {{article.author}}
+                  </div>
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+      </div>
     </div>
     <!--
     <div class="full reveal" id="qna-modal" data-reveal>

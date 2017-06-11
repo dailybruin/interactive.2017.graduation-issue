@@ -67,35 +67,45 @@ ul {
   }
 }
 
+.section{
+  margin-bottom: 15px;
+}
+
 .section-header {
   color: white;
   font-family: "Poppins";
 }
 
 .article-details {
-  height: 100%;
+  height: auto;
   width: inherit;
   position: absolute;
-  font-style: italic;
   padding: 10px;
+  z-index: 900;
+  background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0));
+  transition: background 0.3 ease;
+
+  a {
+    color: white;
+  }
 
   h4 {
     font-weight: bolder;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-
-    @media screen and (max-width: 63.9375em) {
-      color: black;
-    }
   }
 
   span {
     text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   p {
     font-weight: lighter;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 }
 
@@ -103,18 +113,33 @@ ul {
   text-align: center;
   color: #fff;
   height: 400px;
-  background-size: cover;
-  background-position: center;
 }
 
-.article-image {
-  position: relative;
-  z-index: 2;
+.article-thumbnail:hover .article-details {
 
-  &:hover {
-    opacity: 0.3;
-    transition: all 0.3s;
+  background: linear-gradient(rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.4) 85%,rgba(0,0,0,0) 100%);
+
+  span{
+    opacity: 1;
   }
+
+  p{
+    opacity: 1;
+  }
+}
+
+.article-thumbnail:hover .article-image-link {
+  border-bottom: 12px solid red;
+}
+
+.article-image-link{
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  position:relative;
+  border-radius: 8px;
+  border-bottom: 5px solid gray;
+  transition: border-bottom 0.3s ease;
 }
 
 #map-row {
@@ -142,6 +167,11 @@ ul {
   h1 {
     line-height: 1.5em;
     font-size: 2.4rem;
+
+    @media screen and (max-width: 39.9375em) {
+      font-size: 1.5em;
+    }
+
     a {
       color: #fff;
 
@@ -218,6 +248,24 @@ ul {
 
   a:hover {
     cursor: pointer;
+  }
+}
+
+.container-30 {
+  overflow: auto;
+
+}
+
+.photo-container{
+  float: left;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+
+  img {
+    width: 100%;
   }
 }
 
