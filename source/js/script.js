@@ -70,8 +70,22 @@ $(() => {
     loop: false,
     slideMove: 2,
     pager: false,
-    item: 5,
-    enableDrag: false,
+    item: 4,
+    enableDrag: true,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          item: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings:{
+          item: 2
+        }
+      }
+    ]
   });
 
   // Open the modal

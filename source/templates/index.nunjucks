@@ -48,15 +48,18 @@
           <h1 class="section-header">{{section_name}}</h1>
           <ul class="article-slider">
             {% for article in section.articles %}
-              <li class="article-thumbnail">
+              <li class="article-thumbnail" style="background-image:url('{{article.image}}');">
                 <div class="article-details">
-                  <h4>{{article.title}}</h4>
-                  <span>{{article.author}}</span>
-                  <p>{{article.description}}</p>
-                </div>
-                <a href="{{article.link}}">
-                  <img class="article-image" src="{{article.image}}" alt="{{article.image_alt}}">
-                </a>
+                  <a href="{{article.link}}">
+                    <h4>{{article.title}}</h4>
+                    <span>{{article.author}}</span>
+                    <p>{{article.description}}</p>
+                  </a>  
+                </div> 
+                 
+              <!--<a href="{{article.link}}">
+                <img class="article-image" src="{{article.image}}" alt="{{article.image_alt}}">
+              </a>-->
               </li>
             {% endfor %}
           </ul>
