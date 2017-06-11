@@ -9,6 +9,7 @@
     "postinstall": "mkdir -p uploads && mkdir -p build && mkdir -p build/img && npm run copy-static && npm run compile-js:dev && npm run compile-sass:dev",
     "copy-img": "cp source/img/* build/img/",
     "copy-static": "mkdir -p build/static && cp source/static/* build/static/",
+    "build": "babel src -d lib",
     "compile-js:dev": "babel source/js -d build/js --source-maps && browserify build/js/script.js -o build/js/bundle.js",
     "autoprefix": "postcss --use autoprefixer -r build/css/*.css",
     "compile-sass:dev": "node-sass source/sass/*.scss -o build/css && postcss --use autoprefixer -r build/css/*.css",
