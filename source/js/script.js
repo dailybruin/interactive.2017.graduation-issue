@@ -70,8 +70,22 @@ $(() => {
     loop: false,
     slideMove: 2,
     pager: false,
-    item: 5,
-    enableDrag: false,
+    item: 4,
+    enableDrag: true,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          item: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings:{
+          item: 2
+        }
+      }
+    ]
   });
 
   // Open the modal
@@ -79,9 +93,9 @@ $(() => {
   //  $main.addClass("blur");
   //})
 
-  //$qnaModal.on("closed.zf.reveal", () => {
+  // $qnaModal.on("closed.zf.reveal", () => {
   //  $main.removeClass("blur");
-  //})
+  // })
 
   //$qnaModal.foundation("open");
 
@@ -187,7 +201,11 @@ $(() => {
     $paths.hover(() => {
       $paths.toggleClass("hover");
     });
-
-    $qnaModal.foundation("close");
+    removeBlur()
+    $('#qna-modal').css('display', 'none');
   });
+  function removeBlur(){
+    $('#map').removeClass("blur");
+  }
 });
+
