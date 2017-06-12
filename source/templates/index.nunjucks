@@ -116,6 +116,9 @@
       {% endfor %}
       </div>
     </div>
+    <div class="row footer">
+      Page developed by <a href="http://github.com/nathunsmitty">Nathan Smith</a>, <a href="http://github.com/hongee">Hongyi Zhang</a> and <a href="http://github.com/zeehang">Michael Zhang</a>.
+    </div>
     <!--
     <div class="full reveal" id="qna-modal" data-reveal>
       <div class="container">
