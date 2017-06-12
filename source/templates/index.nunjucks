@@ -5,7 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Grad Issue 2017</title>
+    <meta property="og:url"                content="http://gradissue2017.dailybruin.com" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Graduation Issue 2017 | Daily Bruin" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:description"        content="Find out where the Class of 2017 is going and more in Daily Bruin's year-end issue.'" />
+    <meta property="og:image"              content="http://gradissue2017.dailybruin.com/static/banner.jpg" />
+
+    <title>Grad Issue 2017 | Daily Bruin</title>
     <meta name="description" content="">
 
     <!-- Fonts -->
