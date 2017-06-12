@@ -20,6 +20,10 @@ JSONStream@^1.0.3:
     jsonparse "^1.2.0"
     through ">=2.2.7 <3"
 
+"Leaflet.Geodesic@https://github.com/henrythasler/Leaflet.Geodesic.git":
+  version "1.0.0"
+  resolved "https://github.com/henrythasler/Leaflet.Geodesic.git#8aaa991229765e27d190ec7c7a5ef053b757d283"
+
 a-sync-waterfall@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/a-sync-waterfall/-/a-sync-waterfall-1.0.0.tgz#38e8319d79379e24628845b53b96722b29e0e47c"

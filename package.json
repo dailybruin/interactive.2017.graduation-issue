@@ -16,6 +16,7 @@
     "dev": "watch 'npm run compile-nunjucks' source/templates/ source/content/ & watch 'npm run copy-static' source/static/ & watch 'npm run compile-js:dev' source/js/ & watch 'npm run copy-img' source/img/ & watch 'npm run compile-sass:dev' source/sass/ & npm run browser-sync & npm start"
   },
   "dependencies": {
+    "Leaflet.Geodesic": "https://github.com/henrythasler/Leaflet.Geodesic.git",
     "apicache": "^0.8.6",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
