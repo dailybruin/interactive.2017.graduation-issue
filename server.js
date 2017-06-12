@@ -125,7 +125,7 @@ GoogleDoc.useServiceAccountAuth(creds, (done) => {
 */
 
 let app = express();
-let cache = apicache.middleware;
+let cache = apicache.options({ statusCodes: { exclude: [500, 404, 403] } }).middleware;
 
 app.use(logger('dev'));
 app.use(fileUpload());
@@ -239,7 +239,7 @@ app.get('/', cache('1 hour'), (req, res) => {
       GoogleSheet = info.worksheets[0];
     });
     */
-    return res.send("Server restarting hang tight...");
+    return res.status(500).send("Server restarting hang tight...");
   }
 
   GoogleSheet.getRows({

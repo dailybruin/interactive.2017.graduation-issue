@@ -56,7 +56,6 @@ ul {
 
 #map {
   height: 40em;
-  max-height: 70vh;
   width: 100%;
 }
 
@@ -87,6 +86,7 @@ ul {
 .line {
   opacity: 0.5;
   transition: opacity 0.3s, stroke-width 0.3s;
+  padding: 1em;
 
   &:hover,
   &.hover {
@@ -175,9 +175,48 @@ ul {
   height: 200px;
 }
 
+#map {
+  .leaflet-popup-content-wrapper,
+  .leaflet-popup-tip {
+    font-family: $font-stack;
+    font-weight: 300;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.07);
+    font-size: 1.3em;
+  }
+}
+
 #map-row {
   position: relative;
   overflow: hidden;
+}
+
+#map-guide {
+  background-color: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  height: 4em;
+  width: 14em;
+  padding: 0.5em;
+  bottom: 15px;
+  left: 15px;
+  z-index: 9998;
+  border-radius: 5px;
+
+  span {
+    font-weight: 700;
+
+    &.blue {
+      color: #ffe800;
+    }
+
+    &.gold {
+      color: #3284bf;
+    }
+
+    &.q {
+      font-size: 0.7rem;
+    }
+  }
 }
 
 #qna-modal {
@@ -195,6 +234,11 @@ ul {
   .container {
     /* TODO: Add margin-right for bigger screens */
     padding: 5em;
+
+    @media screen and (max-width: 39.9375em) {
+      padding: 4em 2em 2em 2em;
+    }
+
   }
 
   h1 {
@@ -212,6 +256,10 @@ ul {
         margin-right: 0.3em;
         vertical-align: bottom;
         font-size: 2rem;
+
+        @media screen and (max-width: 39.9375em) {
+          font-size: 1.3rem;
+        }
       }
 
       &:hover {

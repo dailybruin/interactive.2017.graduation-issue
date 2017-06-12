@@ -1,25 +1,26 @@
-require('leaflet.polyline.snakeanim');
+require('Leaflet.Geodesic');
 
 $(() => {
   let $main = $(".main");
   let $qnaModal = $("#qna-modal");
   let places = algoliasearch.initPlaces();
 
+  // Initialize foundation
+  $(document).foundation();
+
   const UCLA_LOC = [34.0689, -118.4452];
-  const POLLING_INTERVAL = 2000;
+  const POLLING_INTERVAL = 15000;
   const LocalStorage = window.localStorage;
   const TO_PATH_OPTS = {
     color: '#ffe800',
     weight: 1,
-    offset: 10,
-    vertices: 15,
+    steps: 15,
     className: "line",
   };
   const FROM_PATH_OPTS = {
     color: '#3284bf',
     weight: 1,
-    offset: 10,
-    vertices: 15,
+    steps: 15,
     className: "line",
   };
 
@@ -28,6 +29,9 @@ $(() => {
     var toOpts = $.extend({}, TO_PATH_OPTS, { className: "line " + PathClass} );
     var fromOpts = $.extend({}, FROM_PATH_OPTS, { className: "line " + PathClass} );
 
+    console.log(entry);
+
+    /*
     var fromArc =  L.Polyline.Arc(entry.from, UCLA_LOC, toOpts).addTo(map)
     .snakeIn({
       snakingSpeed: 3000
@@ -35,6 +39,34 @@ $(() => {
     var toArc =  L.Polyline.Arc(UCLA_LOC, entry.to, fromOpts).addTo(map)
     .snakeIn({
       snakingSpeed: 3000
+    });
+    */
+    var fromArc = L.geodesic([[entry.from, UCLA_LOC]], fromOpts).addTo(map);
+    var toArc = L.geodesic([[UCLA_LOC, entry.to]], toOpts).addTo(map);
+
+    const PopupContent = `
+      I'm from ${entry.fromloc} and after ${entry.years} amazing years at UCLA,
+       I'm graduating with a ${entry.degree} in
+      ${entry.major}. I'll be heading to ${entry.toloc} for ${entry.next}!
+    `;
+
+    fromArc.bindPopup(PopupContent);
+    toArc.bindPopup(PopupContent);
+
+    let v = new Vivus(fromArc._renderer._container, {
+      duration: 200,
+      selfDestroy: true,
+      type: 'delayed',
+    }, () => {
+      v.finish();
+    });
+
+    let v2 = new Vivus(toArc._renderer._container, {
+      duration: 200,
+      selfDestroy: true,
+      type: 'delayed',
+    }, () => {
+      v2.finish();
     });
 
     let $paths = $("." + PathClass);
@@ -58,13 +90,22 @@ $(() => {
     });
   };
 
+  window.removeBlur = function () {
+    $('#map').removeClass("blur");
+    $('#map-guide').removeClass("blur");
+    $('#qna-modal').css('display', 'none');
+  };
+
+
   let displayedEntries = {};
   let submission = LocalStorage.getItem('submission');
 
+
+  //removeBlur();
   // Has the form been previously filled?
-  if(!submission) {
-    $(document).foundation();
-  }
+  // always show
+  //if(!submission) {
+  //}
 
   $('.article-slider').lightSlider({
     loop: false,
@@ -124,13 +165,23 @@ $(() => {
   var map = L.map('map', {
     zoomSnap: 0.5,
     zoomDelta: 0.5,
+    maxZoom: 15,
+    maxBoundsViscosity: 1.0,
   });
 
-  map.fitWorld();
-  map.setMaxBounds(map.getBounds());
-  map.setView([34.0689, -118.4452], 9);
-  L.tileLayer.provider('CartoDB.DarkMatter').addTo(map);
+  //map.fitWorld();
+  //map.setMaxBounds(map.getBounds());
+  const southWest = L.latLng(-89.98155760646617, -180);
+  const northEast = L.latLng(89.99346179538875, 180);
+  const bounds = L.latLngBounds(southWest, northEast);
 
+  map.setMaxBounds(bounds);
+
+  map.setView([34.0689, -118.4452], 9);
+
+  let tileL = L.tileLayer.provider('CartoDB.DarkMatter');
+  //tileL.options.noWrap = true;
+  tileL.addTo(map);
 
   // Initial call to populate map
   pollServerForUpdates(map, displayedEntries);
@@ -191,18 +242,24 @@ $(() => {
       params[$this[0].id.substring(4)] = $this.text().trim();
     });
 
-    console.log(fromloc);
+//    console.log(fromloc);
 
     params["from"] = fromloc;
     params["to"] = toloc;
 
-    console.log(params);
+//    console.log(params);
 
     $.post("/entries", params)
     .done((res) => {
-      console.log(res);
+      //console.log(res);
+      LocalStorage.setItem("submission", true);
     });
 
+    removeBlur();
+
+    // Let the automatic update handle this
+
+    /*
     console.log(params);
 
 
@@ -223,11 +280,6 @@ $(() => {
     $paths.hover(() => {
       $paths.toggleClass("hover");
     });
-    removeBlur()
-    $('#qna-modal').css('display', 'none');
+    */
   });
-  function removeBlur(){
-    $('#map').removeClass("blur");
-  }
 });
-
