@@ -5,7 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Grad Issue 2017</title>
+    <meta property="og:url"                content="http://gradissue2017.dailybruin.com" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Graduation Issue 2017 | Daily Bruin" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:description"        content="Find out where the Class of 2017 is going and more in Daily Bruin's year-end issue.'" />
+    <meta property="og:image"              content="http://gradissue2017.dailybruin.com/static/banner.jpg" />
+
+    <title>Grad Issue 2017 | Daily Bruin</title>
     <meta name="description" content="">
 
     <!-- Fonts -->
@@ -21,9 +28,10 @@
   </head>
   <body>
     <div class="top row">
-      <div class="small-12 medium-9 small-centered columns">
-        <h1>Grad Issue</h1>
-        <p>This is really really sad :( </p>
+      <div class="text-container">
+        <div class="small-12 medium-9 small-centered columns">
+          <h1>graduation issue | 2017</h1>
+        </div>
       </div>
     </div>
     <div id="map-row" class="row expanded collapse">
@@ -59,10 +67,10 @@
                 <li class="article-thumbnail">
                   <div class="article-details">
                     <a href="{{article.link}}">
-                      <h4>{{article.title}}</h4>
-                      <span>{{article.author}}</span>
+                      <span>BY {{article.author}}</span>
                       <p>{{article.description}}</p>
-                    </a>
+                      <h5>{{article.title}}</h5>
+                    </a>  
                   </div>
                   <a href="{{article.link}}">
                     <div class="article-image-link" style="background-image:url('{{article.image}}');">
@@ -79,23 +87,37 @@
           </ul>
         </div>
       {% endfor %}
-      <div class="section row">
-        <h1 class="section-header">-30-</h1>
-          {% for section_name, section in sections %}
-            {% if '30' in section_name %}
+      {% for section_name, section in sections %}
+        {% if '30' in section_name %}
+          <div class="section large-12 columns {{section_name}}">
+            <h1 class="section-header">{{section_name}}</h1>
+            <ul class="article-slider-30 thirty">
               {% for article in section.articles %}
-                <div class="container-30">
-                  <div class="photo-container">
-                    <img src="{{article.image}}" class="rounded">
+                <li class="article-thumbnail thirty">
+                  <div class="article-details">
+                    <a href="{{article.link}}" target="_blank">
+                      <span>{{article.title}}</span>
+                    </a>  
                   </div>
-                  <div class="author-30">
-                    {{article.author}}
-                  </div>
-                </div>
+                  <a href="{{article.link}}" target="_blank">
+                    <div class="article-image-link thirty" style="background-image:url('{{article.image}}');">
+
+                    </div>
+                  </a>
+                  
+                <!--<a href="{{article.link}}">
+                  <img class="article-image" src="{{article.image}}" alt="{{article.image_alt}}">
+                </a>-->
+                </li>
               {% endfor %}
             {% endif %}
-          {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
       </div>
+    </div>
+    <div class="row footer">
+      Page developed by <a href="http://github.com/nathunsmitty">Nathan Smith</a>, <a href="http://github.com/hongee">Hongyi Zhang</a> and <a href="http://github.com/zeehang">Michael Zhang</a>.
     </div>
     <!--
     <div class="full reveal" id="qna-modal" data-reveal>
