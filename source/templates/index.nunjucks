@@ -29,6 +29,13 @@
     <div id="map-row" class="row expanded collapse">
       <div id="map" class="blur">
       </div>
+      <div id="map-guide" class="blur">
+        <p>
+          <span class="blue">Blue</span>: Where we came from. <br />
+          <span class="gold">Gold</span>: Where we're going. <br />
+          <span class="q">Updating every 15 seconds.</span>
+        </p>
+      </div>
       <div id="qna-modal" class="map-overlay" data-closable>
         <div class="container">
           <h1 class="qna-form">I am from <span class="getloc" id="qna-fromloc" contenteditable="true">Los Angeles</span>, and after <span contenteditable="true" id="qna-years">4</span> amazing years at UCLA, I am graduating with a <span contenteditable="true" id="qna-degree">BA</span> in <span contenteditable="true" id="qna-major">Economics</span>, and I'll be going to <span class="getloc" id="qna-toloc" contenteditable="true">Montreal</span> for <span contenteditable="true" id="qna-next">Grad School</span>.
@@ -37,7 +44,7 @@
             <h4><span class="db">DAILY BRUIN</span> | The <span class="grad">Graduation</span> Issue</h4>
           </div>
         </div>
-        <button class="close-button" data-close type="button" onclick="$('#map').removeClass('blur');">
+        <button class="close-button" data-close type="button" onclick="removeBlur();">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -55,14 +62,14 @@
                       <h4>{{article.title}}</h4>
                       <span>{{article.author}}</span>
                       <p>{{article.description}}</p>
-                    </a>  
+                    </a>
                   </div>
                   <a href="{{article.link}}">
                     <div class="article-image-link" style="background-image:url('{{article.image}}');">
 
                     </div>
                   </a>
-                  
+
                 <!--<a href="{{article.link}}">
                   <img class="article-image" src="{{article.image}}" alt="{{article.image_alt}}">
                 </a>-->
@@ -103,7 +110,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    
+
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -111,6 +118,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js" integrity="sha256-nHmCK+HOPMPezzS3ky9VKznMWH4sW4keT8HrMaDNbYo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.textcomplete/1.8.0/jquery.textcomplete.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="//cdn.jsdelivr.net/vivus/latest/vivus.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.1.15/leaflet-providers.min.js"></script>
     <script src="//unpkg.com/leaflet-arc/bin/leaflet-arc.min.js"></script>
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
