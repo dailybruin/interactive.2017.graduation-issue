@@ -21,9 +21,10 @@
   </head>
   <body>
     <div class="top row">
-      <div class="small-12 medium-9 small-centered columns">
-        <h1>Grad Issue</h1>
-        <p>This is really really sad :( </p>
+      <div class="text-container">
+        <div class="small-12 medium-9 small-centered columns">
+          <h1>graduation issue | 2017</h1>
+        </div>
       </div>
     </div>
     <div id="map-row" class="row expanded collapse">
@@ -52,9 +53,9 @@
                 <li class="article-thumbnail">
                   <div class="article-details">
                     <a href="{{article.link}}">
-                      <h4>{{article.title}}</h4>
-                      <span>{{article.author}}</span>
+                      <span>BY {{article.author}}</span>
                       <p>{{article.description}}</p>
+                      <h5>{{article.title}}</h5>
                     </a>  
                   </div>
                   <a href="{{article.link}}">
@@ -72,22 +73,33 @@
           </ul>
         </div>
       {% endfor %}
-      <div class="section row">
-        <h1 class="section-header">-30-</h1>
-          {% for section_name, section in sections %}
-            {% if '30' in section_name %}
+      {% for section_name, section in sections %}
+        {% if '30' in section_name %}
+          <div class="section large-12 columns {{section_name}}">
+            <h1 class="section-header">{{section_name}}</h1>
+            <ul class="article-slider-30 thirty">
               {% for article in section.articles %}
-                <div class="container-30">
-                  <div class="photo-container">
-                    <img src="{{article.image}}" class="rounded">
+                <li class="article-thumbnail thirty">
+                  <div class="article-details">
+                    <a href="{{article.link}}" target="_blank">
+                      <span>{{article.title}}</span>
+                    </a>  
                   </div>
-                  <div class="author-30">
-                    {{article.author}}
-                  </div>
-                </div>
+                  <a href="{{article.link}}" target="_blank">
+                    <div class="article-image-link thirty" style="background-image:url('{{article.image}}');">
+
+                    </div>
+                  </a>
+                  
+                <!--<a href="{{article.link}}">
+                  <img class="article-image" src="{{article.image}}" alt="{{article.image_alt}}">
+                </a>-->
+                </li>
               {% endfor %}
             {% endif %}
-          {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
       </div>
     </div>
     <!--

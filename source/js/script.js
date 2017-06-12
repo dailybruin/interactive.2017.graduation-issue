@@ -88,6 +88,28 @@ $(() => {
     ]
   });
 
+  $('.article-slider-30').lightSlider({
+    loop: false,
+    slideMove: 2,
+    pager: false,
+    item: 8,
+    enableDrag: true,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          item: 6
+        }
+      },
+      {
+        breakpoint: 480,
+        settings:{
+          item: 2
+        }
+      }
+    ]
+  });
+
   // Open the modal
   //$qnaModal.on("open.zf.reveal", () => {
   //  $main.addClass("blur");
