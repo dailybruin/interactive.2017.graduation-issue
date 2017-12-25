@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: npm start
+    ports:
+      - "3030:3030"
+    env_file: .env
+    depends_on:
+      - db
+    volumes:
+      - .:/gradissue-2017
+      - /gradissue-2017/node_modules
+    environment:
+      - DB_HOST=db
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    env_file: .env
