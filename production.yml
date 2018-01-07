@@ -1,0 +1,33 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: npm start
+    ports:
+      - "3030:3030"
+    env_file: .env
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+    networks:
+      - public
+      - gradissue2017
+  db:
+    image: postgres:latest
+    volumes:
+      - /opt/gradissue-2017/db:/var/lib/postgresql/
+    env_file: .env
+    restart: always
+    ports:
+      - "5432:5432"
+    networks:
+      - gradissue2017
+
+networks:
+  public:
+    external:
+      name: public
+  gradissue2017:
+    driver: bridge
+
