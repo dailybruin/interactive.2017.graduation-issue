@@ -1,4 +1,4 @@
-FROM node:carbon-slim
+FROM node:carbon
 
 WORKDIR /gradissue-2017
 
